@@ -44,7 +44,7 @@ namespace Reminder
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Authnetication/Error");
                 app.UseHsts();
             }
 
@@ -56,7 +56,7 @@ namespace Reminder
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Authentication}/{action=Index}/{id?}");
             });
         }
     }

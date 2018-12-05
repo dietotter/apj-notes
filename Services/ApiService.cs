@@ -4,29 +4,29 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Reminder.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Reminder.Models;
 
 namespace Reminder.Services
 {
     public class ApiService
     {
-        private static HttpClient client = new HttpClient();
-        private static string url = "http://localhost:58707/api";
-        
+        private static HttpClient _client = new HttpClient();
+        private static string _url = "http://localhost:5000/api/reminder";
+
         public static async Task<IActionResult> Post(string route, Object data)
         {
             string content = JsonConvert.SerializeObject(data);
             StringContent stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync(url + route, stringContent);
-            
+            HttpResponseMessage response = await _client.PostAsync(_url + route, stringContent);
+
             if (response.IsSuccessStatusCode)
             {
                 return new OkResult();
             }
-            
+
             return new NotFoundResult();
-        }        
+        }
     }
 }
