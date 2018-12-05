@@ -1,6 +1,6 @@
 using System;
 
-namespace notes.Models
+namespace Reminder.Models
 {
     public class ErrorViewModel
     {
