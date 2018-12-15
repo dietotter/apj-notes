@@ -1,11 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk.Web" ToolsVersion="15.0">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <FileUpgradeFlags>40</FileUpgradeFlags>
-    <UpgradeBackupLocation>\\Mac\Home\Documents\uni\forthYear\APJ\reminder\Backup\</UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Reminder.Api\**" />
+    <Content Remove="Reminder.Api\**" />
+    <EmbeddedResource Remove="Reminder.Api\**" />
+    <None Remove="Reminder.Api\**" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Reminder.Api\Reminder.Api.csproj" />
+  </ItemGroup>
+
 </Project>
