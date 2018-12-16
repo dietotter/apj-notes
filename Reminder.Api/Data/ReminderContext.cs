@@ -8,6 +8,8 @@ namespace Reminder.Api.Data
     {
         public DbSet<Item> Items { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         public ReminderContext(DbContextOptions<ReminderContext> options) : base(options) { }
 
         public ReminderContext() { }
