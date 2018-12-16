@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Reminder.Api.Data;
 using Reminder.Api.Dtos;
@@ -9,7 +8,7 @@ using Reminder.Api.Utils;
 
 namespace Reminder.Api
 {
-    [Route("api/login")]
+    [Route("api/auth")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -19,13 +18,13 @@ namespace Reminder.Api
             _authService = new AuthService(Context);
         }
 
-        [HttpPost]
+        [Route("/login"), HttpPost]
         public ActionResult<string> Login([FromBody] UserDto dto)
         {
             return HandleResponse(_authService.Login(dto));
         }
 
-        [HttpPost]
+        [Route("/register"), HttpPost]
         public ActionResult<string> Register([FromBody] UserDto dto)
         {
             return HandleResponse(_authService.Register(dto));
@@ -34,13 +33,13 @@ namespace Reminder.Api
         private ActionResult<string> HandleResponse(ValueTuple<User, Error> payload)
         {
             (User User, Error Error) = payload;
+
             if (Error != null)
             {
                 return BadRequest(Error);
             }
 
-            return Ok(User);
+            return Ok(User.ToDto());
         }
-
     }
 }

@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Reminder.Api.Models;
-using Reminder.Api.Service;
 
 namespace Reminder.Api.Data
 {

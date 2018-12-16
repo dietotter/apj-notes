@@ -1,17 +1,14 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Linq.Expressions;
-using Newtonsoft.Json;
-using Reminder.Api.Data;
+using System.ComponentModel.DataAnnotations;
 using Reminder.Api.Dtos;
 
 namespace Reminder.Api.Models
 {
     public class User
     {
+        [Key]
         public string UserName { get; set; }
         public string Password { get; set; }
+        public string Name { get; set; }
 
         public User() { }
 
@@ -19,6 +16,16 @@ namespace Reminder.Api.Models
         {
             this.UserName = dto.UserName;
             this.Password = dto.Password;
+            this.Name = dto.Name;
+        }
+
+        public UserDto ToDto()
+        {
+            return new UserDto
+            {
+                UserName = this.UserName,
+                    Name = this.Name,
+            };
         }
     }
 }

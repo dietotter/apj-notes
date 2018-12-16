@@ -1,9 +1,3 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Linq.Expressions;
-using Newtonsoft.Json;
-using Reminder.Api.Data;
 using Reminder.Api.Dtos;
 
 namespace Reminder.Api.Models
