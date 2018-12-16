@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Identity;
 using Reminder.Api.Data;
 using Reminder.Api.Dtos;
