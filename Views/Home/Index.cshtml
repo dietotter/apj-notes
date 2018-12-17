@@ -5,11 +5,11 @@
 }
 
 <div class="row">
-    @if(true/* string.IsNullOrEmpty(Model.Username) */)
+    @if(string.IsNullOrEmpty(Model.Username))
     {
         <!-- not logged in -->
         <div class="col-md-6">
-            <h2>Sign Up, @Model.Username</h2>
+            <h2>Sign Up</h2>
             @{Html.RenderPartial("~/Views/Partials/SignUp.cshtml", Model.SignUpFormViewModel);}
         </div>
         <div class="col-md-6">
@@ -20,7 +20,20 @@
     else
     {
         <!-- logged in -->
-        
+        <div class="row">
+        <div class="col-md-3">
+            <button>Delete</button>
+        </div>
+        <div class="col-md-3">
+            <h2>Data</h2>
+        </div>
+        <div class="col-md-3">
+            <h2>Time</h2>
+        </div>
+        <div class="col-md-3">
+            <h2>Description</h2>    
+        </div>
+</div>
     }
     
 </div>

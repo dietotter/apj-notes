@@ -47,5 +47,10 @@ namespace Reminder.Api.Service
 
             _context.SaveChanges();
         }
+
+        public List<Item> GetByUsername(string username)
+        {
+            return _context.Items.Where(i => i.Username == username).ToList();
+        }
     }
 }

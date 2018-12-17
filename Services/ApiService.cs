@@ -13,7 +13,7 @@ namespace Reminder.Services
     public class ApiService
     {
         private static HttpClient _client = new HttpClient();
-        private static string _url = "http://localhost:5000/api";
+        private static string _url = "http://localhost:5000";
 
         public static async Task<IActionResult> Post(string route, Object data)
         {

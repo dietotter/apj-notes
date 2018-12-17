@@ -13,11 +13,6 @@ namespace Reminder.Controllers
 {
     public class AuthenticationController : Controller
     {
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return GetView();
-        }
 
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
@@ -28,9 +23,9 @@ namespace Reminder.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(string username, string password)
+        public async Task<IActionResult> Register(string username, string password, string name)
         {
-            IActionResult response = await AuthenticationService.Register(username, password);
+            IActionResult response = await AuthenticationService.Register(username, password, name);
 
             return HandleReponse(response, username);
         }
@@ -41,28 +36,6 @@ namespace Reminder.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        private ActionResult LoggedIn()
-        {
-            return View("~/Views/Reminder.cshtml");
-        }
-
-        private ActionResult LoggedOut()
-        {
-            return View("~/Views/Login.cshtml");
-        }
-
-        private ActionResult GetView()
-        {
-            if (HttpContext.Session.GetString("userName") != null)
-            {
-                return LoggedOut();
-            }
-            else
-            {
-                return LoggedIn();
-            }
-        }
-
         private void SessionSave(string username)
         {
             ViewBag.CurrentUserName = username;
@@ -71,11 +44,14 @@ namespace Reminder.Controllers
 
         private ActionResult HandleReponse(IActionResult response, string username)
         {
+            Console.WriteLine("LOLOL");
+            Console.WriteLine(response);
             if (response is OkResult)
             {
                 SessionSave(username);
             }
-            return GetView();
+            ReminderView rmv = new ReminderView() {Username = HttpContext.Session.GetString("Username"), SignUpFormViewModel = new SignUpForm(), LoginFormViewModel = new LoginForm()};
+            return View("~/Views/Home/Index.cshtml", rmv);
         }
     }
 }

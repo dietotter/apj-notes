@@ -5,6 +5,7 @@ namespace Reminder.Api.Models
     public class Item
     {
         public int Id { get; private set; }
+        public string Username { get; set; }
         public string Date { get; set; } // timestamp - js: Date.now()
         public string Description { get; set; }
 
@@ -14,6 +15,7 @@ namespace Reminder.Api.Models
         {
             this.Date = dto.Date;
             this.Description = dto.Description;
+            this.Username = dto.Username;
         }
 
         public void Update(ItemDto dto)

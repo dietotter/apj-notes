@@ -57,7 +57,7 @@ namespace Reminder.Api.Service
 
         private User GetUser(UserDto dto)
         {
-            return _context.Users.Find(dto.UserName);
+            return _context.Users.Find(dto.Username);
         }
     }
 }

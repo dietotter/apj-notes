@@ -6,7 +6,7 @@ namespace Reminder.Api.Models
     public class User
     {
         [Key]
-        public string UserName { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
 
@@ -14,7 +14,7 @@ namespace Reminder.Api.Models
 
         public User(UserDto dto)
         {
-            this.UserName = dto.UserName;
+            this.Username = dto.Username;
             this.Password = dto.Password;
             this.Name = dto.Name;
         }
@@ -23,7 +23,7 @@ namespace Reminder.Api.Models
         {
             return new UserDto
             {
-                UserName = this.UserName,
+                Username = this.Username,
                     Name = this.Name,
             };
         }

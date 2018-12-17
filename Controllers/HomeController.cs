@@ -14,7 +14,7 @@ namespace Reminder.Controllers
         public IActionResult Index()
         {
             var username = HttpContext.Session.GetString("Username");
-            ReminderView rmv = new ReminderView() {Username = "kek", SignUpFormViewModel = new SignUpForm(), LoginFormViewModel = new LoginForm()};
+            ReminderView rmv = new ReminderView() {Username = username, SignUpFormViewModel = new SignUpForm(), LoginFormViewModel = new LoginForm()};
             return View("Index", rmv);
         }
 

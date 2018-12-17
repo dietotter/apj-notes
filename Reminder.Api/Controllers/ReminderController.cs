@@ -25,6 +25,13 @@ namespace Reminder.Api
             return Ok(Items);
         }
 
+        [Route("{username}"), HttpGet]
+        public ActionResult GetByUsername([FromRoute] string username)
+        {
+            List<Item> Items = _itemService.GetByUsername(username);
+            return Ok(Items);
+        }
+
         [Route("{id}"), HttpDelete]
         public ActionResult<ItemDto> Delete([FromRoute] int id)
         {

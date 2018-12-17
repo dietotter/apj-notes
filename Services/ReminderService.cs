@@ -10,11 +10,11 @@ using Newtonsoft.Json;
 
 namespace Reminder.Services
 {
-    public class AuthenticationService
+    public class ReminderService
     {
-        public static Task<IActionResult> Login(string username, string password)
+        public static Task<IActionResult> GetByUsername(string username)
         {
-            return ApiService.Post("/login", new {username,password});
+            return ApiService.Post("/login", new {username});
         }
 
         public static Task<IActionResult> Register(string username, string password, string name)
