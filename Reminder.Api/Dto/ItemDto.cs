@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Reminder.Api.Data;
-
 namespace Reminder.Api.Dtos
 {
   public class ItemDto

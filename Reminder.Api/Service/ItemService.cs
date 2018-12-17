@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Reminder.Api.Data;
@@ -13,9 +12,9 @@ namespace Reminder.Api.Service
 
         public ItemService() { }
 
-        public ItemService(ReminderContext _context)
+        public ItemService(ReminderContext context)
         {
-            this._context = _context;
+            this._context = context;
         }
 
         public Item Get(int Id)
