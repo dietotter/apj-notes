@@ -4,8 +4,8 @@ namespace Reminder.Models
 {
     public class UserModel
     {
-        [Required(ErrorMessage = "UserName is requisred")]
-        public string UserName { get; set; }
+        [Required(ErrorMessage = "Username is requisred")]
+        public string Username { get; set; }
 
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]

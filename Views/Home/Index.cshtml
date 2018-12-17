@@ -9,12 +9,12 @@
     {
         <!-- not logged in -->
         <div class="col-md-6">
-            <h2>Sign Up</h2>
-            @Html.Partial("~/Views/Partials/SignUp.cshtml")
+            <h2>Sign Up, @Model.Username</h2>
+            @{Html.RenderPartial("~/Views/Partials/SignUp.cshtml", Model.SignUpFormViewModel);}
         </div>
         <div class="col-md-6">
             <h2>Log In</h2>
-            @Html.Partial("~/Views/Partials/Login.cshtml")
+            @{Html.RenderPartial("~/Views/Partials/Login.cshtml", Model.LoginFormViewModel);}
         </div>
     }
     else

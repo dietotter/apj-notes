@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Reminder.Models;
 
 namespace Reminder.Controllers
@@ -12,7 +13,9 @@ namespace Reminder.Controllers
     {
         public IActionResult Index()
         {
-            return View("Index");
+            var username = HttpContext.Session.GetString("Username");
+            ReminderView rmv = new ReminderView() {Username = "kek", SignUpFormViewModel = new SignUpForm(), LoginFormViewModel = new LoginForm()};
+            return View("Index", rmv);
         }
 
         public IActionResult Privacy()

@@ -66,7 +66,7 @@ namespace Reminder.Controllers
         private void SessionSave(string username)
         {
             ViewBag.CurrentUserName = username;
-            HttpContext.Session.SetString("userName", username);
+            HttpContext.Session.SetString("Username", username);
         }
 
         private ActionResult HandleReponse(IActionResult response, string username)
